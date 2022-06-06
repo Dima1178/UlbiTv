@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import './styles/App.css';
 import PostList from './components/PostList';
+import MyButton from './components/UI/button/MyButton';
+import MyInput from './components/UI/input/MyInput';
 
 function App() {
   const[posts, setPosts] = useState([
@@ -9,16 +11,18 @@ function App() {
     {id:  3, title: 'Java Script 3', name: 'Descriotion'},
   ])
 
-  const[posts2, setPosts2] = useState([
-    {id:  1, title: 'Pyton', name: 'Descriotion'},
-    {id:  2, title: 'Pyton2', name: 'Descriotion'},
-    {id:  3, title: 'Ptron3', name: 'Descriotion'},
-  ])
+  
 
   return (
     <div className= 'App'> 
-      <PostList posts={posts} title="List of Posts 1" />    
-      <PostList posts={posts2} title="List of Posts 2" />                                                                                    
+      <form>
+        <MyInput type="text" placeholder="Name of the post"/>
+        <MyInput type="text" placeholder="Dicription of the post"/>
+      
+      </form>
+     
+      <MyButton>Buy now </MyButton>
+      <PostList posts={posts} title="List of Posts 1" />                                                                             
     </div>
   );
 }

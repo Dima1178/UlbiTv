@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import './styles/App.css';
 import PostList from './components/PostList';
 import MyButton from './components/UI/button/MyButton';
@@ -13,11 +13,14 @@ function App() {
 
   const[title, setTitle] = useState('hjhjhjh')
 
+  const bodyInputRef = useRef()
+
   const addNewPost = (e) => {
     e.preventDefault()
     console.log(title)
+    console.log(bodyInputRef.current.value)
   }
-
+ 
 
   return (
     <div className= 'App'> 
@@ -29,7 +32,11 @@ function App() {
           type="text" 
           placeholder="Name of the post"
           />
-        <MyInput type="text" placeholder="Dicription of the post"/>
+        <MyInput 
+        ref={bodyInputRef}
+        type="text"
+        placeholder="Dicription of the post"
+         />
       
       </form>
      

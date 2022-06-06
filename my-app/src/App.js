@@ -11,17 +11,29 @@ function App() {
     {id:  3, title: 'Java Script 3', name: 'Descriotion'},
   ])
 
-  
+  const[title, setTitle] = useState('hjhjhjh')
+
+  const addNewPost = (e) => {
+    e.preventDefault()
+    console.log(title)
+  }
+
 
   return (
     <div className= 'App'> 
       <form>
-        <MyInput type="text" placeholder="Name of the post"/>
+        {/*управляемій компонент*/}
+        <MyInput
+          value={title}
+          onChange={e => setTitle(e.target.value)}
+          type="text" 
+          placeholder="Name of the post"
+          />
         <MyInput type="text" placeholder="Dicription of the post"/>
       
       </form>
      
-      <MyButton>Buy now </MyButton>
+      <MyButton onClick={addNewPost}>Create post</MyButton>
       <PostList posts={posts} title="List of Posts 1" />                                                                             
     </div>
   );
